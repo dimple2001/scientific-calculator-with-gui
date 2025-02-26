@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="calculator">
+        <div class="menu-bar">
+            <div class="menu-item" id="historyButton">History</div>
+            <div class="menu-item" onclick="showAbout()">About</div>
+        </div>
+        
+        <input type="text" id="display" readonly>
+        
+        <div class="button-grid scientific-buttons">
+            <button onclick="handleOperation('sqrt')">√</button>
+            <button onclick="insertText('^')">^</button>
+            <button onclick="handleOperation('factorial')">x!</button>
+            <button onclick="insertText('3.14159265359')">π</button>
+            
+            <button onclick="handleOperation('sin')">sin</button>
+            <button onclick="handleOperation('cos')">cos</button>
+            <button onclick="handleOperation('tan')">tan</button>
+            <button onclick="insertText('2.71828182846')">e</button>
+            
+            <button onclick="handleOperation('log')">log</button>
+            <button onclick="handleOperation('ln')">ln</button>
+            <button onclick="insertText('(')">(</button>
+            <button onclick="insertText(')')">)</button>
+        </div>
+        
+        <div class="button-grid normal-buttons">
+            <button onclick="insertText('7')">7</button>
+            <button onclick="insertText('8')">8</button>
+            <button onclick="insertText('9')">9</button>
+            <button onclick="insertText('+')">+</button>
+            
+            <button onclick="insertText('4')">4</button>
+            <button onclick="insertText('5')">5</button>
+            <button onclick="insertText('6')">6</button>
+            <button onclick="insertText('-')">-</button>
+            
+            <button onclick="insertText('1')">1</button>
+            <button onclick="insertText('2')">2</button>
+            <button onclick="insertText('3')">3</button>
+            <button onclick="insertText('×')">×</button>
+            
+            <button onclick="insertText('0')">0</button>
+            <button onclick="insertText('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="insertText('÷')">÷</button>
+            
+            <button onclick="backspace()">⌫</button>
+            <button onclick="clearDisplay()" class="wide-button">AC</button>
+            <button onclick="memory('MS')" class="wide-button">MS</button>
+        </div>
+    </div>
+
+    <div id="history">
+        <h3>Calculation History</h3>
+        <div id="historyContent"></div>
+        <button onclick="clearHistory()" style="width:100%; margin-top:10px;">Clear History</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html>
