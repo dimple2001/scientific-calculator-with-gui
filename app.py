@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 import math
+import os
 
 app = Flask(__name__)
 
-# Store calculation history
 calculation_history = []
 
 @app.route('/')
 def index():
-    # Flask automatically looks for HTML files inside the 'templates' folder
     return render_template('calculator.html')
 
 @app.route('/calculate', methods=['POST'])
@@ -91,4 +90,5 @@ def get_history():
     return jsonify({'history': calculation_history})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use dynamic port for deployment
+    app.run(host='0.0.0.0', port=port, debug=True)  # Bind to 0.0.0.0 for external access
