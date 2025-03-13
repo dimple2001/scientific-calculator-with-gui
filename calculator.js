@@ -138,7 +138,25 @@ function memory(operation) {
 }
 
 function showAbout() {
-    alert('Scientific Calculator\nVersion 2.0\n\nEnhanced with Python backend and history functions');
+    alert('Scientific Calculator\nVersion 2.0\n\nEnhanced with Python backend, history functions, and dark/light theme');
+}
+
+// Toggle between dark and light mode
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    // Save preference to localStorage
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
+// Load theme preference from localStorage
+function loadThemePreference() {
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'true') {
+        document.body.classList.add('dark-mode');
+    }
 }
 
 // Handle keyboard input
@@ -153,4 +171,8 @@ document.addEventListener('keydown', function(event) {
 });
 
 // Initialize
-document.getElementById('historyButton').addEventListener('click', toggleHistory);
+document.addEventListener('DOMContentLoaded', function() {
+    loadThemePreference();
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('historyButton').addEventListener('click', toggleHistory);
+});

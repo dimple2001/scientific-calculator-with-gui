@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
 }
 
 .calculator {
@@ -14,6 +15,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #display {
@@ -26,6 +28,7 @@ body {
     border-radius: 5px;
     padding: 0 10px;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .button-grid {
@@ -49,7 +52,7 @@ button {
     background-color: #f0f0f0;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
@@ -65,12 +68,12 @@ button:hover {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    margin-top:60px;
 }
 
 .menu-item {
     cursor: pointer;
     padding: 5px 10px;
+    transition: background-color 0.3s;
 }
 
 .menu-item:hover {
@@ -79,7 +82,7 @@ button:hover {
 
 #history {
     position: absolute;
-    top: 50px;
+    top: 20px;
     right: 20px;
     width: 300px;
     max-height: 400px;
@@ -89,16 +92,60 @@ button:hover {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 10px;
     display: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .history-item {
     padding: 5px 0;
     border-bottom: 1px solid #eee;
     cursor: pointer;
+    transition: border-color 0.3s ease;
 }
 
 .history-item:last-child {
     border-bottom: none;
 }
 
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+}
 
+.dark-mode .calculator {
+    background: #1e1e1e;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.dark-mode #display {
+    background-color: #2d2d2d;
+    color: white;
+    border-color: #444;
+}
+
+.dark-mode button {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background-color: orange;
+}
+
+.dark-mode .menu-item {
+    color: white;
+}
+
+.dark-mode .menu-item:hover {
+    background-color: #333;
+}
+
+.dark-mode #history {
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.dark-mode .history-item {
+    border-bottom: 1px solid #444;
+    color: #ddd;
+}
