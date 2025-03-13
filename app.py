@@ -3,10 +3,12 @@ import math
 
 app = Flask(__name__)
 
+# Store calculation history
 calculation_history = []
 
 @app.route('/')
 def index():
+    # Flask automatically looks for HTML files inside the 'templates' folder
     return render_template('calculator.html')
 
 @app.route('/calculate', methods=['POST'])
@@ -19,12 +21,8 @@ def calculate():
     try:
         if operation == 'calculate':
             expression = data.get('expression')
-            # Replace symbols with Python operators
             expression = expression.replace('×', '*').replace('÷', '/')
-            # Use eval (in production, you might want a safer approach)
             result = eval(expression)
-            
-            # Add to history
             calculation_history.append(f"{expression} = {result}")
             
         elif operation == 'sqrt':
@@ -45,7 +43,6 @@ def calculate():
                 
         elif operation == 'sin':
             value = float(data.get('value'))
-            # Convert to radians
             result = math.sin(math.radians(value))
             calculation_history.append(f"sin({value}) = {result}")
             
