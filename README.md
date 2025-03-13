@@ -1,4 +1,4 @@
-# Scientific Calculator with Dark/Light Mode
+# 📐Scientific Calculator with Dark/Light Mode
 
 A responsive web-based scientific calculator built with Flask, JavaScript, HTML, and CSS. This calculator features both standard and scientific operations, calculation history tracking, and a dark/light theme toggle.
 
@@ -53,10 +53,14 @@ scientific-calculator/
 - Click on any history item to use that result in a new calculation
 - Use "Clear History" to remove all history items
 
-### 🚀Technologies Used
+### 🚀 Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Backend**: Python, Flask
 
+### 🌍 Deployed on Render
+The project is live on **Render**:
+➡️ https://scientific-calculator-with-gui.onrender.com
 
+### 🤝 Contributions
 Contributions are welcome! Please feel free to submit a Pull Request.
